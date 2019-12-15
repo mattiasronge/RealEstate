@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 
+/**
+ * Databasstrukturen för typkategori.
+ * Tabell av kategorityp har förhållande till produktmanualtabell och produkt-api-tabell.
+ */
+
 var CategTypeSchema = new mongoose.Schema({
     title : String,
     parent_id : {

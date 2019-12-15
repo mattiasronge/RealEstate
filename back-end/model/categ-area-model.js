@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+/**
+ * Databasstrukturen för områdeskategori.
+ * Tabell för områdeskategori har förhållande till produktmanualtabell och produkt-api-tabell.
+ */
 
 var CategAreaSchema = new mongoose.Schema({
     title : String,

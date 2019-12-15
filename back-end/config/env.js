@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 
 /**
+* Bestämmer den aktuella miljön och ställer i lämpliga variabler
 @param {Express App} app 
  */
 
@@ -17,7 +18,7 @@ function setEnvironment(app) {
 }
 
 /**
- * 
+ * * Används för att ställa in standardmiljövariabler
  * @param {Express App} app 
  */
 function setDevEnv(app) {

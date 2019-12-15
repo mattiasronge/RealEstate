@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 
+/**
+ * Databasstrukturen för admin sida.
+ */
+
 var UserAdminSchema = new mongoose.Schema({
     email : String,
     username : String,
