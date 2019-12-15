@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 /**
- * Databasstrukturen för typkategori.
+ * Databasstrukturen för typkategori .
  * Tabell av kategorityp har förhållande till produktmanualtabell och produkt-api-tabell.
  */
 

@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
-
+/**
+ * Databasstrukturen för produkt-api
+ * Produkt-api-tabellen har förhållande till kund-sid-tabe och kategori-plats, kategori-område, kategori-tabell.
+ * Denna relation kommer att implementeras via sidor, plats, område, typ
+ */
 var ProductApiSchema = new mongoose.Schema({
     ref_key : String,
     title : String,

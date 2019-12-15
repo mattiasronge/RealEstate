@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 /**
- * Databasstrukturen för platskategori.
+ * Databasstrukturen för platskategori .
  * Tabell för kategori-placering har förhållande till produktmanualtabell och produkt-api-tabell.
  */
 var CategLocationSchema = new mongoose.Schema({

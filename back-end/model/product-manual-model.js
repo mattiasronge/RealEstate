@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 /**
  * Roll: Databasstrukturen för manuell produkt. Admin kan ladda upp produkten till api. Då lagras produkten här.
  * Produktmanualtabell har förhållande till kundsidatabell och kategori-plats, kategori-område, kategori-tabell.
- * Denna relation kommer att implementeras via sidor, plats, område, typ
+ * Denna relation kommer att implementeras via sidor, plats, område, typ 
  */
 
 var ProductManualSchema = new mongoose.Schema({

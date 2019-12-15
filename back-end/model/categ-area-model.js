@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 /**
- * Databasstrukturen för områdeskategori.
+ * Databasstrukturen för områdeskategori. 
  * Tabell för områdeskategori har förhållande till produktmanualtabell och produkt-api-tabell.
  */
 

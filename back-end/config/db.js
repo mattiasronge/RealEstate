@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// Kopplar till Mongodb
+// Kopplar till Mongodb 
 function connectToDB() {
     mongoose.connect(process.env.DB_URL, { useNewUrlParser: true }, error => {
         if (error) {

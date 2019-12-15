@@ -1,5 +1,5 @@
 /**
- * Hanterar routing
+ * Hanterar routing.
  */
 const userAdminRoutes       = require('../api/user/user-admin/user-admin-routes');
 const userCustomerRoutes    = require('../api/user/user-customer/user-customer-routes');

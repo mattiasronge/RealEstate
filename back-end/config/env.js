@@ -18,7 +18,7 @@ function setEnvironment(app) {
 }
 
 /**
- * * Används för att ställa in standardmiljövariabler
+ * * Används för att ställa in standardmiljövariabler 
  * @param {Express App} app 
  */
 function setDevEnv(app) {

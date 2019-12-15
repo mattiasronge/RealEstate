@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-
+// DB Struktur för API config 
 var ApiConfigSchema = new mongoose.Schema({
     api_key : String,
     api_token : String,
