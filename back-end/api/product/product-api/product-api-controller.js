@@ -3,7 +3,7 @@ const ApiService = require('../../../service/api-service');
 
 const ProductApiController = {
     /**
-     * Role: Getting all products from the third-party api.
+     * Hämtar alla produkter från third-party api.
      */
     index(req, res){
         ProductApiModel.find({})
@@ -27,7 +27,7 @@ const ProductApiController = {
         });
     },
     /**
-     * Role: Getting one product from the third-party api.
+     * Hämtar en produkt från tredje part api
      */    
     show(req, res){
         ProductApiModel.findOne({
@@ -44,7 +44,7 @@ const ProductApiController = {
         });
     },
     /**
-     * Role: Create one product in the third-party api.
+     * Role: Skapar en produkt från tredje part api
      */     
     create(req, res){
         userAdmin = new ProductApiModel(req.body);

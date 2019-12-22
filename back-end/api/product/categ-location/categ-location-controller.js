@@ -1,14 +1,14 @@
 const CategLocationModel = require('../../../model/categ-location-model');
+
 /**
- * Role: Handling all operations for location category that can be used in the filtering products.
- * This is called from categ-location-routes.js
- * package: location category
- * 
+ * Hantera alla funktioner för platskategori som kan användas i filtreringsprodukterna.
+ * Denna kallas från categ-location-routes.js
  */
+
 const CategLocationController = {
-    /**
-     * Role: getting the all items from the location category database
-     */
+
+    //Hämtar alla objekt från databasen för platskategori
+    
     index(req, res){
         CategLocationModel.find({}, (err, users) => {
             if(err){
@@ -18,7 +18,7 @@ const CategLocationController = {
         });
     },
     /**
-     * Role: getting one items from the location category database
+     * Hämtar ett objekt från platskategoridatabasen
      */      
     show(req, res){
         CategLocationModel.findOne({
@@ -31,7 +31,7 @@ const CategLocationController = {
         });
     },
      /**
-     * Role: Insert new one to the db
+     * Lägger till
      */     
     create(req, res){
         userAdmin = new CategLocationModel(req.body);
@@ -43,7 +43,7 @@ const CategLocationController = {
         })
     },
     /**
-     * Role: Updating the data
+     * Uppdaterar
      */    
     update(req, res){
         CategLocationModel.findOneAndUpdate({
@@ -60,7 +60,7 @@ const CategLocationController = {
         });
     },
     /**
-     * Role: Deleting the data
+     * Tar bort
      */     
     remove(req, res){
         CategLocationModel.remove({

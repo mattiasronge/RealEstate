@@ -2,8 +2,7 @@ const express = require('express');
 const CategLocationController = require('./categ-location-controller');
 
 /**
- * Role: Handling the routing for location category.
- * The operations will be progressed in the controller part. so need to import the controller part.
+ * Hantera routingen för platskategori.
  */
 const router = express.Router();
 
