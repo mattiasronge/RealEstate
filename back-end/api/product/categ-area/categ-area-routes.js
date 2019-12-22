@@ -1,9 +1,10 @@
 const express = require('express');
 const CategAreaController = require('./categ-area-controller');
 
-
-  // Hanterar routing för area category
-
+/**
+* Hantera dirigeringen för områdeskategori.
+* Åtgärderna kommer att fortsätta i styrenhetsdelen. så behöver importera controller-delen.
+*/
 const router = express.Router();
 
 

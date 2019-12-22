@@ -1,14 +1,12 @@
 const CategLocationModel = require('../../../model/categ-location-model');
-
 /**
- * Hantera alla funktioner för platskategori som kan användas i filtreringsprodukterna.
- * Denna kallas från categ-location-routes.js
+ * Hantera alla operationer för placeringskategori som kan användas i filtreringsprodukterna.
+ * Detta kallas från categ-location-routes.js
  */
-
 const CategLocationController = {
-
-    //Hämtar alla objekt från databasen för platskategori
-    
+    /**
+     * Hämtar alla objekt från databasen för platskategori
+     */
     index(req, res){
         CategLocationModel.find({}, (err, users) => {
             if(err){
@@ -18,7 +16,7 @@ const CategLocationController = {
         });
     },
     /**
-     * Hämtar ett objekt från platskategoridatabasen
+     * Hämtar ett objekt från databasen för platskategori
      */      
     show(req, res){
         CategLocationModel.findOne({
@@ -31,7 +29,7 @@ const CategLocationController = {
         });
     },
      /**
-     * Lägger till
+     * Skapar ett
      */     
     create(req, res){
         userAdmin = new CategLocationModel(req.body);

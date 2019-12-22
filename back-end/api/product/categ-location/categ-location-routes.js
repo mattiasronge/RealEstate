@@ -1,6 +1,7 @@
 const express = require('express');
 const CategLocationController = require('./categ-location-controller');
 
+
 /**
  * Hantera routingen för platskategori.
  */
