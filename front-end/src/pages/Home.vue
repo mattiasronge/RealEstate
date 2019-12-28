@@ -11,6 +11,7 @@
         </div>
         <div id="company-info">
             <div id="company-info-image">
+                <img src="/images/home-company-info.jpg" />
             </div>
             <div id="company-info-text">
                 <h1>About the company</h1>
@@ -21,13 +22,30 @@
             </div>
         </div>
         <div id="home-listing">
+            <HomeCard v-for="home in homes" :key="home._id" :home="home"></HomeCard>
         </div>
     </div>
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+import HomeCard from '../components/HomeCard.vue';
+
 export default {
-    
+    components: {
+        HomeCard,
+    },
+    created() {
+        this.getPosts();
+    },
+    computed: mapState({
+        homes: state => state.posts,
+    }),
+    methods: {
+    ...mapActions([
+      "getPosts"
+    ]),
+  }
 }
 </script>
 
@@ -80,6 +98,7 @@ export default {
 #company-info {
     width: 100vw;
     display: flex;
+    margin-bottom: 113px;
     #company-info-text {
         padding-left: 113px;
         h1 {
@@ -96,5 +115,13 @@ export default {
             color: rgb(154, 154, 154);
         }
     }
+}
+
+#home-listing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 113px;
+    padding-right: 113px;
 }
 </style>

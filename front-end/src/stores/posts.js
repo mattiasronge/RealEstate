@@ -1,8 +1,8 @@
 import Vapi from "vuex-rest-api";
 
 const posts = new Vapi({
-  //baseURL: "http://13.58.114.69:3000/api",
-  baseURL: "http://localhost:3000/api",
+  baseURL: "http://13.58.114.69:3000/api",
+  //baseURL: "http://localhost:3000/api",
   state: {
     totalPages: 0,
     totalCount: 0,
@@ -18,6 +18,7 @@ const posts = new Vapi({
     property: "posts",
     path: ({ page }) => `/product/?page=${page}`,
     onSuccess(state, payload, axios, { params, data }) {
+
       if (!payload.data) return;
       let list=[];
       payload.data.data.forEach((item) => {
@@ -27,8 +28,10 @@ const posts = new Vapi({
           }
         }
         list.push(item);
+        console.log(item);
       });
       state.posts = list;
+
       if (payload.data.total)
       {
         state.totalCount = payload.data.total;
@@ -37,6 +40,7 @@ const posts = new Vapi({
       state.currentPage = 1;
     },
     onError(state, error, axios, { params, data }) {
+    console.log('ERROR');
       state.posts = [];
       state.totalPages = 0;
       state.totalCount = 0;
