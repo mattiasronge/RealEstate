@@ -22,11 +22,11 @@ const posts = new Vapi({
       if (!payload.data) return;
       let list=[];
       payload.data.data.forEach((item) => {
-        if (item['images']) {
+        /**if (item['images']) {
           for (let i=0; i<item['images'].length; i++) {
             item['images'][i] =  {src: 'https://media.inmobalia.com/imgV1/'+item['images'][i]};
           }
-        }
+        }**/
         list.push(item);
         console.log(item);
       });
