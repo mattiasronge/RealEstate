@@ -7,6 +7,11 @@ const posts = new Vapi({
     totalPages: 0,
     totalCount: 0,
     currentPage: 1,
+    post: {
+        title: 'null',
+        price: 'null',
+        description: 'null',
+    },
     posts: [],
     locations: [],
     areas: [],
@@ -40,7 +45,6 @@ const posts = new Vapi({
       state.currentPage = 1;
     },
     onError(state, error, axios, { params, data }) {
-    console.log('ERROR');
       state.posts = [];
       state.totalPages = 0;
       state.totalCount = 0;
@@ -52,6 +56,7 @@ const posts = new Vapi({
     property: "post",
     path: ({ id }) => `/productapi/${id}`,
     onSuccess(state, payload, axios, { params, data }) {
+        console.log(payload);
       if (!payload.data) return;
       let item = payload.data;
       if (item['images']) {

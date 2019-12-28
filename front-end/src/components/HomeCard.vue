@@ -9,6 +9,7 @@
         </div>
         <div class="home-card-description">
             Text here.
+            <router-link :to="{ name: 'product', params: {id: home._id}}">Read more</router-link>
         </div>
     </div>
 </template>
