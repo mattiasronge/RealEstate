@@ -1,6 +1,9 @@
 <template>
     <div id="app">
-        <header :style="{ 'background': 'white'}">
+        <header :style="{ 
+                'background': headerBackground,
+                'color': headerColor,
+                'box-shadow': headerShadow}">
             <div class="brand">real estate</div>
             <nav>
                 <ul>
@@ -61,6 +64,37 @@
     </div>
 </template>
 
+<script>
+export default {
+ 
+    data() {
+        return {
+            headerBackground: 'transparent',
+            headerColor: 'white',
+            headerShadow: 'none',
+        }
+    },
+
+    mounted() {
+        window.addEventListener('scroll', this.onScroll);
+    },
+
+    methods: {
+        onScroll(event) {
+            if (window.pageYOffset > (document.documentElement.clientHeight * 0.80)) {
+                this.headerBackground = 'white';
+                this.headerColor = '#888';
+                this.headerShadow = '0 0 20px 0 rgba(0,0,0,.15)';
+            } else {
+                this.headerBackground = 'transparent';
+                this.headerColor = 'white';
+                this.headerShadow = 'none';
+            }
+        },
+    }
+}
+</script>
+
 <style lang="scss">
 * {
     margin: 0;
@@ -79,13 +113,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
+    position: fixed;
     z-index: 100;
     top: 0;
     left: 0;
     width: 100vw;
+    padding: 20px;
     text-transform: uppercase;
-
     ul {
         list-style: none;
 
@@ -93,7 +127,6 @@ header {
             display: inline;
             padding: 10px;
             font-size: 12px;
-            color: #888;
         }
     }
 }
