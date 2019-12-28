@@ -107,6 +107,7 @@ footer {
     flex-direction: column;
     width: 100vw;
     padding: 90px;
+    margin-top: 113px;
     background: #111;
     color: white;
 
