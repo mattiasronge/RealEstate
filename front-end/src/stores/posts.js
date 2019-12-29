@@ -59,11 +59,11 @@ const posts = new Vapi({
         console.log(payload);
       if (!payload.data) return;
       let item = payload.data;
-      if (item['images']) {
+      /**if (item['images']) {
         for (let i=0; i<item['images'].length; i++) {
           item['images'][i] = 'https://media.inmobalia.com/imgV1/'+item['images'][i];
         }
-      }
+      }**/
       state.post = item;
     },
     onError(state, error, axios, { params, data }) {

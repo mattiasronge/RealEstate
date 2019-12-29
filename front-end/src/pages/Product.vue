@@ -18,7 +18,8 @@
             <div id="description" v-html="home.description">
             </div>
         </div>
-        <div id="galery">
+        <div id="gallery">
+            <img :src="image" :key="image" v-for="image in home.images" />
         </div>
         <div id="additionals">
             <h1>Additional features</h1>
@@ -61,7 +62,6 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100vw;
         margin-bottom: 89px;
         h1 {
             font-size: 3.5em;
@@ -110,10 +110,19 @@ export default {
         }
     }
     #gallery {
-        width: 100vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
         margin-bottom: 89px;
         margin-left: 73px;
         margin-right: 73px;
+        img {
+        box-sizing: border-box;
+            width: 400px;
+            height: 277px;
+            margin: 22.5px;
+        }
     }
 }
 </style>
