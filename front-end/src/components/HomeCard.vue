@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="home-card-description">
-            Text here.
+            <h1>{{ home.title }}</h1>
             <router-link :to="{ name: 'product', params: {id: home._id}}">Read more</router-link>
         </div>
     </div>
@@ -35,7 +35,6 @@ export default {
     .home-card-carousel {
         position: relative;
         float: left;
-        border: 1px solid black;
         img {
             width: 100%;
             height: 318px;
@@ -53,16 +52,26 @@ export default {
             align-items: center;
             background: transparent;
             button {
+                width: 50px;
+                height: 50px;
                 padding: 10px;
-                background: rgb(50, 50, 50);
+                margin-left: 5px;
+                margin-right: 5px;
+                background: rgba(50, 50, 50, 0.5);
                 border: 0;
+                border-radius: 50px;
                 color: white;
                 cursor: pointer;
             }
         }
     }
     .home-card-description {
-        border: 1px solid black;
+        margin-top: 10px;
+        h1 {
+            font-size: 1.1em;
+            line-height: 1.4em;
+            text-transform: uppercase;
+        }
     }
 }
 
