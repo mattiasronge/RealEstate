@@ -106,7 +106,9 @@ export default {
 <style lang="scss" scoped>
 #app {
     width: 100vw;
-    height: 100wh;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 header {

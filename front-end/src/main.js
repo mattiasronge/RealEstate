@@ -3,6 +3,10 @@ import App from "./App.vue";
 import router from "./router";
 import store from './stores'
 
+import VueCarousel from '@chenfengyuan/vue-carousel';
+
+Vue.use(VueCarousel);
+
 Vue.config.productionTip = false;
 
 new Vue({

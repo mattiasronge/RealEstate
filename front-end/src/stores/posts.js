@@ -32,7 +32,16 @@ const posts = new Vapi({
             item['images'][i] =  {src: 'https://media.inmobalia.com/imgV1/'+item['images'][i]};
           }
         }**/
-        list.push(item);
+        let duplicate = false;
+        for (let i = 0; i < list.length; i++) {
+            if (list[i]._id == item._id) {
+                duplicate = true;
+                break;
+            }
+        }
+        if (!duplicate) {
+            list.push(item);
+        }
         console.log(item);
       });
       state.posts = list;

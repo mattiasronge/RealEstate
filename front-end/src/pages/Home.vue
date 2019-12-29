@@ -120,6 +120,8 @@ export default {
 #home-listing {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
     justify-content: space-between;
     padding-left: 113px;
     padding-right: 113px;

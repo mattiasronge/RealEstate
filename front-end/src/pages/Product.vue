@@ -1,10 +1,12 @@
 <template>
     <div id="product">
         <div id="header">
-            HEADER
+            <div id="title">
+                <h1>{{ home.title }}</h1>
+            </div>
+            <carousel :data="images"></carousel>
         </div>
         <div id="content">
-            <h1>{{ home.title }}</h1>
             <h2>
                 {{ home.price.toLocaleString(undefined, {style:'currency', currency: home.currency}) }}
             </h2>
@@ -35,8 +37,17 @@ import { mapState, mapActions } from 'vuex';
 
 export default {
     props: ['id'],
-    created() {
-        this.getPost({ params: {id: this.id} });
+    data() {
+        return {
+            images: [],
+        };
+    },
+    async created() {
+        await this.getPost({ params: {id: this.id} });
+        this.images = [];
+        for (let i = 0; i < this.home.images.length; i++) {
+            this.images.push(`<img class="carousel-img" src="${this.home.images[i]}">`);
+        }
     },
     computed: mapState({
         home: state => state.post,
@@ -49,13 +60,39 @@ export default {
 }
 </script>
 
+<style>
+.carousel-img {
+    width: 100vw;
+    height: 100vh;
+}
+</style>
+
 <style lang="scss" scoped>
 #product {
     #header {
+        position: relative;
         width: 100vw;
         height: 100vh;
         margin-bottom: 89px;
         background: rgb(36, 156, 220);
+        #title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            h1 {
+                color: white;
+                display: block;
+                font-weight: bold;
+                letter-spacing: -4px;
+                text-transform: uppercase;
+            }
+        }
     }
     #content {
         display: flex;

@@ -7,4 +7,5 @@ module.exports = {
     appleMobileWebAppStatusBarStyle: '#f96332'
   },
   lintOnSave: false,
+  runtimeCompiler: true,
 };
