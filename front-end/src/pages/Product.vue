@@ -124,5 +124,15 @@ export default {
             margin: 22.5px;
         }
     }
+    #additionals {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            font-size: 1.825em;
+            line-height: 1.4em;
+            text-transform: uppercase;
+        }
+    }
 }
 </style>
