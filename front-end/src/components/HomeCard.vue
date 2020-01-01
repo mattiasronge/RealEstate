@@ -5,6 +5,7 @@
         </div>
         <div class="home-card-description">
             <h1>{{ home.title }}</h1>
+            <h2>{{ home.location.title }}</h2>
             <router-link :to="{ name: 'product', params: {id: home._id}}">Read more</router-link>
         </div>
     </div>

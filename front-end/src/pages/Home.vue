@@ -82,6 +82,7 @@ export default {
         width: 100%;
         height: 100%;
         color: white;
+        text-shadow: 1px 1px 2px lightblue, 0 0 1em lightblue, 0 0 0.2em lightblue;
         h1 {
             display: block;
             font-size: 100px;

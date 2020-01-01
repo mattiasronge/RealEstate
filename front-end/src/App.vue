@@ -4,13 +4,17 @@
                 'background': headerBackground,
                 'color': headerColor,
                 'box-shadow': headerShadow}">
-            <div class="brand">real estate</div>
+            <div class="brand">
+                <router-link to="/">real estate</router-link>
+            </div>
             <nav>
                 <ul>
-                    <li>Contact</li>
-                    <li>About us</li>
-                    <li>Login</li>
-                    <li>Sign up</li>
+                    <li>
+                        <router-link to="/search">Search</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/contact">Contact</router-link>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -116,12 +120,16 @@ header {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    z-index: 100;
+    z-index: 1000;
     top: 0;
     left: 0;
     width: 100vw;
     padding: 20px;
     text-transform: uppercase;
+    a, a:visited, a:active, a:hover {
+        color: white;
+        text-shadow: 1px 1px 2px lightblue, 0 0 1em lightblue, 0 0 0.2em lightblue;
+    }
     ul {
         list-style: none;
 

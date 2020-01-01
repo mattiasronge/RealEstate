@@ -80,6 +80,7 @@ export default {
             justify-content: center;
             align-items: center;
             position: absolute;
+            padding: 20px;
             z-index: 10;
             top: 0;
             left: 0;
@@ -91,6 +92,7 @@ export default {
                 font-weight: bold;
                 letter-spacing: -4px;
                 text-transform: uppercase;
+                text-align: center;
             }
         }
     }
@@ -111,6 +113,10 @@ export default {
             line-height: 1.4em;
         }
         #features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
             .reference {
                 background: rgb(249, 99, 50);
                 color: white;
