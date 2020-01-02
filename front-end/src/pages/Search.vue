@@ -8,12 +8,15 @@
                 <div id="search-form-filter">
                     <select name="location" id="location">
                         <option value="all">All locations</option>
+                        <option :key="location" v-for="location in locations">{{ location }}</option>
                     </select>
                     <select name="areas" id="areas">
                         <option value="all">All areas</option>
+                        <option :key="area.id" v-for="area in areas">{{ area.title }}</option>
                     </select>
                     <select name="types" id="types">
                         <option value="all">All types</option>
+                        <option :key="type" v-for="type in types">{{ type }}</option>
                     </select>
                     <select name="bedrooms" id="bedrooms">
                         <option value="all">All bedrooms</option>
@@ -39,14 +42,23 @@ export default {
         HomeCard,
     },
     created() {
+        this.getLocations();
+        this.getAreas();
+        this.getTypes();
         this.searchPost();
     },
     computed: mapState({
         homes: state => state.posts,
+        locations: state => state.locations,
+        areas: state => state.areas,
+        types: state => state.types,
     }),
     methods: {
     ...mapActions([
-      "searchPost"
+      "searchPost",
+      "getLocations",
+      "getAreas",
+      "getTypes",
     ]),
   }
 }
@@ -90,7 +102,7 @@ export default {
             select {
                 background-color: rgb(249, 99, 50);
                 color: white;
-                padding: 20px;
+                padding: 40px;
                 width: 200px;
                 border-radius: 50;
             }
