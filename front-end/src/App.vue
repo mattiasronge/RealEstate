@@ -27,17 +27,16 @@
                     <h1>Meny</h1>
                     <ul class="capitalized">
                         <li>Home</li>
-                        <li>Our properties</li>
+                        <li>Properties</li>
                         <li>Contact</li>
                     </ul>
 
                 </div>
                 <div class="footer-column">
-                    <h1>Kontakt</h1>
+                    <h1>Office</h1>
                     <div class="footer-contact">
-                        <h1>Marbella</h1>
                        Blvd. Principe Alfonso von Hohenlohe s/n<br/>
-                        114 46 Stockholm<br/>
+                        114 46 Marbella, Spain<br/>
                         +46 (0)8 410 959 80<br/>
                     </div>
 
