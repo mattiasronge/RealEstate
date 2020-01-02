@@ -99,9 +99,20 @@ export default {
 #company-info {
     width: 100vw;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 113px;
+    #company-info-image {
+        width: 50%;
+        img {
+            width: 100%;
+            height: 380px;
+        }
+    }
     #company-info-text {
         padding-left: 113px;
+        padding-right: 89px;
         h1 {
             font-size: 35px;
             font-weight: bold;
