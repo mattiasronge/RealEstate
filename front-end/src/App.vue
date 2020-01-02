@@ -26,44 +26,24 @@
                 <div class="footer-column">
                     <h1>Meny</h1>
                     <ul class="capitalized">
-                        <li>VÅRA HEM</li>
-                        <li>SÄLJ MED OSS</li>
-                        <li>UNDERHAND</li>
-                        <li>WORLD OF ESNY</li>
+                        <li>Home</li>
+                        <li>Our properties</li>
+                        <li>Contact</li>
                     </ul>
-                    <ul>
-                        <li>Vår historia</li>
-                        <li>Vårt team</li>
-                        <li>Kontakta oss</li>
-                        <li>Press & PR</li>
-                        <li>Våra villkor</li>
-                    </ul>
+
                 </div>
                 <div class="footer-column">
                     <h1>Kontakt</h1>
                     <div class="footer-contact">
-                        <h1>STOCKHOLM</h1>
-                        Humlegårdsgatan 10<br/>
+                        <h1>Marbella</h1>
+                       Blvd. Principe Alfonso von Hohenlohe s/n<br/>
                         114 46 Stockholm<br/>
                         +46 (0)8 410 959 80<br/>
                     </div>
-                    <div class="footer-contact">
-                        <h1>GÖTEBORG</h1>
-                        Kaserntorget 5<br/>
-                        411 18 Göteborg<br/>
-                        +46 (0)31 353 90 90<br/>
-                    </div>
+
                 </div>
             </div>
-            <div class="footer-infos">
-                <div class="footer-icons">
-                </div>
-                <ul class="footer-summary">
-                    <li>COPYRIGHT © 2019</li>
-                    <li class="bold">EKLUND STOCKHOLM NEW YORK</li>
-                    <li>ORG. NR 556787-1941</li>
-                </ul>
-            </div>
+
         </footer>
     </div>
 </template>
