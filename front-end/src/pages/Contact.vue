@@ -4,6 +4,7 @@
             <h1>Contact Us</h1>
             <h2>Meet the Administrator to require more Products</h2>
         </div>
+        <pre>{{output}}</pre>
         <form id="contact-form" @submit="onSubmit">
             <div class="column">
                 <h1>Send us a message</h1>
@@ -13,14 +14,13 @@
                     soon as possible.
                 </h2>
                 <label>Your name</label>
-                <input type="text" name="name" id="name" placeholder="Your name ...">
+                <input type="text" name="name" id="name" placeholder="Your name ..." v-model="name">
                 <label>Your email</label>
-                <input type="email" name="email" id="email" placeholder="Email here...">
+                <input type="email" name="email" id="email" placeholder="Email here..." v-model="email">
                 <label>Your phone</label>
-                <input type="phone" name="phone" id="phone" placeholder="Phone number here ...">
+                <input type="phone" name="phone" id="phone" placeholder="Phone number here ..." v-model="phone">
                 <label>Your message</label>
-                <textarea id="message" name="message">
-                </textarea>
+                <textarea id="message" name="message" v-model="message"></textarea>
                 <button>
                     Contact us
                 </button>
@@ -49,9 +49,27 @@
 
 <script>
 export default {
+    data() {
+        return {
+            name: '',
+            email: '',
+            phone: '',
+            message: '',
+            output: ''
+        };
+    },
     methods: {
-        onSubmit() {
-            // TODO: Submit contact form here.
+        onSubmit(e) {
+            e.preventDefault();
+            let currentObj = this;
+
+            this.axios.get('http://13.58.114.69:3000/api/sendEmail1?email='+this.email+'&name='+this.name+'&phone='+this.phone+'&message='+this.message)
+            .then(function (response) {
+                this.output = response;
+            })
+            .catch(function (error) {
+                this.output = error;
+            });
         }
     }
 }
@@ -109,7 +127,6 @@ export default {
                 font-weight: 700;
                 color: black;
             }
-
             h2 {
                 line-height: 1.61em;
                 font-weight: 300;
@@ -117,7 +134,6 @@ export default {
                 color: #9a9a9a;
                 margin-bottom: 64px;
             }
-
             h3 {
                 font-size: 1.5em;
                 line-height: 1.45em;
@@ -125,7 +141,6 @@ export default {
             label {
                 margin-top: 32px;
             }
-
             input {
                 padding: 10px 18px 10px 18px;
                 border: 1px solid #e3e3e3;
@@ -146,7 +161,6 @@ export default {
                 border-radius: 20px;
                 outline: none;
             }
-
             button {
                 width: 200px;
                 padding: 10px;
@@ -162,7 +176,6 @@ export default {
                 padding: 11px 22px;
                 margin-top: 32px;
             }
-
             button, button:hover, button:active {
                 outline: none;
                 cursor: pointer;
