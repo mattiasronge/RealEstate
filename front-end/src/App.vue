@@ -52,9 +52,9 @@ export default {
  
     data() {
         return {
-            headerBackground: 'transparent',
-            headerColor: 'white',
-            headerShadow: 'none',
+            headerBackground: 'white',
+            headerColor: '#888',
+            headerShadow: '0 0 20px 0 rgba(0,0,0,.15)',
         }
     },
 
@@ -65,13 +65,13 @@ export default {
     methods: {
         onScroll(event) {
             if (window.pageYOffset > (document.documentElement.clientHeight * 0.80)) {
-                this.headerBackground = 'white';
-                this.headerColor = '#888';
-                this.headerShadow = '0 0 20px 0 rgba(0,0,0,.15)';
-            } else {
                 this.headerBackground = 'transparent';
                 this.headerColor = 'white';
                 this.headerShadow = 'none';
+            } else {
+                this.headerBackground = 'white';
+                this.headerColor = '#888';
+                this.headerShadow = '0 0 20px 0 rgba(0,0,0,.15)';
             }
         },
     }
@@ -106,12 +106,12 @@ header {
     padding: 20px;
     text-transform: uppercase;
     a, a:visited, a:active, a:hover {
-        color: white;
+        color: #888;
         text-shadow: 1px 1px 2px lightblue, 0 0 1em lightblue, 0 0 0.2em lightblue;
     }
     ul {
         list-style: none;
-
+        margin-bottom: 0;
         li {
             display: inline;
             padding: 10px;

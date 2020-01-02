@@ -68,6 +68,13 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+
+@mixin media-max($_max-width) {
+    @media screen and (max-width: $_max-width) {
+        &{ @content; }
+    }
+}
+
 #product {
     #header {
         position: relative;
@@ -147,6 +154,11 @@ export default {
             margin-top: 39px;
             margin-left: 330px;
             margin-right: 330px;
+
+            @include media-max(800px) {
+            margin-left: 30px;
+            margin-right: 30px;
+            }
             font-size: 1.2em;
             font-weight: 400;
             line-height: 1.61em;
@@ -161,7 +173,7 @@ export default {
         margin-left: 73px;
         margin-right: 73px;
         img {
-        box-sizing: border-box;
+            box-sizing: border-box;
             width: 400px;
             height: 277px;
             margin: 22.5px;

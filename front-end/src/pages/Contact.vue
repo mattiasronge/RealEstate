@@ -58,6 +58,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin media-max($_max-width) {
+    @media screen and (max-width: $_max-width) {
+        &{ @content; }
+    }
+}
+
 #contact {
     #header {
         display: flex;
@@ -77,11 +83,17 @@ export default {
             text-transform: uppercase;
             text-align: center;
         }
+        h2 {
+            text-align: center;
+        }
     }
     #contact-form {
         display: flex;
         margin: 89px;
         justify-content: space-between;
+        @include media-max(768px) {
+            justify-content: center;
+        }
         align-items: center;
         flex-wrap: wrap;
         .column {
@@ -90,7 +102,7 @@ export default {
             justify-content: center;
             width: 45%;
             min-width: 400px;
-    
+            margin-bottom: 89px;
             h1 {
                 line-height: 1.2;
                 font-size: 2.5em;

@@ -96,15 +96,25 @@ export default {
     }
 }
 
+@mixin media-max($_max-width) {
+    @media screen and (max-width: $_max-width) {
+        &{ @content; }
+    }
+}
 #company-info {
     width: 100vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 113px;
+    div {
+        margin-bottom: 113px;
+    }
     #company-info-image {
         width: 50%;
+        @include media-max(800px) {
+            width: 100%;
+        }
         img {
             width: 100%;
             height: 380px;
@@ -132,9 +142,10 @@ export default {
 #home-listing {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-items: center;
     justify-content: space-between;
+    @include media-max(1200px) {
+        justify-content: center;
+    }
     padding-left: 113px;
     padding-right: 113px;
 }
