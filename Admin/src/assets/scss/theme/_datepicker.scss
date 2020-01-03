@@ -1,0 +1,47 @@
+/**=====================
+    46. Datepicker CSS Start
+==========================**/
+.vdp-datepicker {
+  .vdp-datepicker__calendar {
+    box-shadow: 0 4px 14px rgba(68, 102, 242, 0.15);
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    header {
+      height: auto;
+    }
+    .cell {
+      height: 38px;
+      line-height: 38px;
+      border-radius: 5px;
+      &.selected {
+        background: $primary-color;
+        color: $white;
+        &:hover {
+          background: $primary-color;
+          color: $white;
+        }
+      }
+      &.day-header {
+        font-weight: 600;
+        font-size: 11px;
+        text-transform: uppercase;
+      }
+    }
+    .cell:not(.blank):not(.disabled) {
+      &.day, &.month, &.year {
+        &:hover {
+          border: 1px solid $primary-color;
+        }
+      }
+    }
+  }
+}
+
+/**=====================
+   46. Datepicker CSS End
+==========================**/
+
+
+
+

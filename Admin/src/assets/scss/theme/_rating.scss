@@ -1,0 +1,23 @@
+/**=====================
+    89. Rating CSS start
+==========================**/
+.vue-rate-it-rating-text, .vue-star-rating-rating-text {
+    margin-top: -4px !important;
+    margin-left: 0 !important;
+    font-size: 20px;
+    float: left;
+    padding: 0 20px 0 20px;
+    color: $primary-color;
+    font-weight: 400;
+}
+.rating-container {
+    position: relative;
+    .rating-show {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+/**=====================
+    89. Rating CSS Ends
+==========================**/

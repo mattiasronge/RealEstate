@@ -1,0 +1,45 @@
+/**=====================
+     43. Form Wizard CSS Start
+==========================**/
+.vue-form-wizard {
+	padding-bottom: 0;
+	.wizard-icon-circle {
+		border-color: $primary-color !important;
+		.wizard-icon-container {
+			background-color: $primary-color !important;
+		}
+	}
+	.wizard-navigation {
+		.wizard-progress-with-circle {
+			.wizard-progress-bar {
+				background-color: $primary-color !important;
+			}
+		}
+	}
+	.wizard-btn {
+		background-color: $primary-color !important;
+		border-color: $primary-color !important;
+	}
+	.stepTitle {
+		&.active {
+			color: $primary-color !important;
+		}
+	}
+	.wizard-header {
+		padding-top: 0;
+	}
+	&.md {
+		.wizard-icon-circle {
+			&.tab_shape {
+				height: 60px;
+			}
+		}
+	}
+	.stepTitle {
+		margin-top: 10px;
+	}
+}
+
+/**=====================
+    43. Form Wizard CSS Ends
+==========================**/

@@ -1,0 +1,12 @@
+{
+  "data": [ 
+    {
+      "title": "Products", "icon": "box", "type": "sub", "badgeType": "primary", "badgeValue": "", "active": true, "children": [
+        { "path": "/product/apilist", "title": "API Products", "type": "link", "active": true, "children": [
+          { "path": "/property/list", "title": "Save From API", "type": "link" }
+        ]},          
+        { "path": "/product/manual", "title": "Manual Products", "type": "link" }
+      ]
+    }
+  ]
+}
