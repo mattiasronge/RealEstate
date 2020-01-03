@@ -5,7 +5,7 @@
                 'color': headerColor,
                 'box-shadow': headerShadow}">
             <div class="brand">
-                <router-link to="/">real estate</router-link>
+                <router-link to="/"><img src="/img/brand.png" /></router-link>
             </div>
             <nav>
                 <ul>
@@ -105,6 +105,11 @@ header {
     width: 100vw;
     padding: 20px;
     text-transform: uppercase;
+    .brand {
+        img {
+            height: 20px;
+        }
+    }
     a, a:visited, a:active, a:hover {
         color: #888;
         text-shadow: 1px 1px 2px lightblue, 0 0 1em lightblue, 0 0 0.2em lightblue;

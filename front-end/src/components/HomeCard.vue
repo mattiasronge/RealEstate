@@ -1,7 +1,7 @@
 <template>
     <div class="home-card">
         <div class="home-card-carousel">
-            <carousel :data="images" :autoplay="false" :indicators="false"></carousel>
+            <img class="home-card-carousel-img" :src="home.images[0]">
         </div>
         <div class="home-card-description">
             <h1>{{ home.title }}</h1>
