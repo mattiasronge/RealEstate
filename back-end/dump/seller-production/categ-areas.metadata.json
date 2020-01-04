@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"seller-production.categ-areas"}],"uuid":"833b38c961b146c281d24c88f1584a47"}
