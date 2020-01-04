@@ -69,7 +69,6 @@ const routes = [
         }
       ]
     }
-
 ];
 
 const router = new Router({

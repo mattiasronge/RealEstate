@@ -333,7 +333,8 @@ export default {
   data(){
     return{
       dropzoneOptions:{
-        url:process.env.VUE_APP_BACKEND_URL+'api/upload',
+        url:process.env.VUE_APP_BACKEND_URL+'api/upload', 
+// inställning för drag drop image
         thumbnailWidth: 250,
         thumbnailHeight: 140,
         acceptedFiles: 'image/jpeg,image/png',
@@ -343,10 +344,11 @@ export default {
       },
       editor: ClassicEditor,
       perPage: 10,
-      pageOptions: [5, 10, 15],
+      pageOptions: [5, 10, 15], // inställning för paginatuib
       totalRows: 1,
       currentPage: 1,
-      filters: {
+      filters: {  
+// inställning av parameter för filter
         currentPage:1,
         totalPages:0,
 				id: { value: '', keys: ['_id'] },
@@ -364,7 +366,8 @@ export default {
     }
   },
   computed: {
-    ...mapState({
+    ...mapState({ 
+// efter att ha modifierat state, så mappas state till komponenten direkt
       products: state => state.manual_product.products,
       product: state => state.manual_product.product,
       locations: state => state.category.locations,
@@ -372,7 +375,7 @@ export default {
       types: state => state.category.types
     })       
   },
-  created() {
+  created() { //initialize
     this.getProducts();
     this.getLocations();
     this.getAreas();
@@ -398,14 +401,16 @@ export default {
       this.nameState = null
     },
     handleSubmit(id) {
+// när admin klickar på spara,
       this.$store.dispatch('manual_product/saveProduct', {id: id});
-      // Hide the modal manually
+
+// Dölj modalen manuellt
       this.$nextTick(() => {
         this.$bvModal.hide('modal-product');
         this.$toasted.show('The product is saved successfully.', {theme: 'outline',position: "top-center", icon : 'info', type: 'info', duration: 3000});
       })
     },
-    showConfirmBox(id) {
+    showConfirmBox(id) { //open the confirm dialogue window
       this.$bvModal.msgBoxConfirm('Please confirm that you want to delete the Product with ID: '+id, {
         title: 'Please Confirm',
         size: 'sm',
@@ -413,7 +418,6 @@ export default {
         okVariant: 'danger',
         okTitle: 'YES',
         cancelTitle: 'NO',
-        footerClass: 'p-2',
         hideHeaderClose: false,
         centered: true
       })

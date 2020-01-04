@@ -6,12 +6,12 @@
       <div class="sidebar custom-scrollbar">
         <div class="sidebar-user text-center">
           <div><img class="img-60 rounded-circle" src="../assets/images/user/1.jpg" alt="#">
-            <div class="profile-edit"> <router-link to="/users/edit"><feather type="edit"></feather></router-link></div>
+            <div class="profile-edit"> <router-link to="#"><feather type="edit"></feather></router-link></div>
           </div>
-          <h6 class="mt-3 f-14">ELANA</h6>
-          <p>general manager.</p>
+          <h6 class="mt-3 f-14">Real Estate</h6>
+          <p>Admin Page.</p>
         </div>
-          <ul class="sidebar-menu">
+          <ul class="sidebar-menu" >
              <li v-for="(menuItem, index) in menuItems" :key="index" :class="{'active': menuItem.active}">
                <!-- Sub -->
                <a href="javascript:void(0)" class="sidebar-header" v-if="menuItem.type == 'sub'" @click="setNavActive(menuItem, index)">

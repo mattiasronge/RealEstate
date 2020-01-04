@@ -320,7 +320,8 @@
 
 <script>
 import { mapState } from "vuex";
-// Import the editor
+
+// Importerar editor
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import vue2Dropzone from 'vue2-dropzone';
@@ -363,7 +364,7 @@ export default {
 			}
     }
   },
-  computed: {
+  computed: { // efter att modifierat state till store, mappas det till komponent 
     ...mapState({
       products: state => state.api_product.products,
       product: state => state.api_product.product,
@@ -372,40 +373,46 @@ export default {
       types: state => state.category.types
     })       
   },
-  created() {
+  created() { 
+// när instansen är kryssad ställer du in automatiskt.
     this.getProducts();
     this.getLocations();
     this.getAreas();
     this.getTypes();
   }, 
-  methods: {
-    afterComplete(file, response) {
+  methods: { 
+// definiera de metoder som används i api-produktlistan
+    afterComplete(file, response) { 
+// efter att bilduppladdningen har slutförts, läggs bilden till servern
       if (response.file.filename && response.file.filename!='')
         this.$store.dispatch('api_product/addProductImage', {img: response.file.filename});
       this.$refs.dropzone.removeAllFiles();
     },
-    removeProductImg(image) {
+    removeProductImg(image) { //tar bort bild
       this.$store.dispatch('api_product/removeProductImage', {img: image});
     },
-    removeDropFile() {
+    removeDropFile() { //drag drop
       this.$refs.dropzone.removeAllFiles();
     },
-    focusMyElement() {
+    focusMyElement() { //sätter fokus på elementet
       this.$refs.focusThis.focus()
     },
     resetModal() {
       this.name = ''
       this.nameState = null
     },
-    handleSubmit(id) {
+    handleSubmit(id) { 
+// när admin klickar på spara-knappen och lägger till produkten i db
       this.$store.dispatch('api_product/saveProduct', {id: id});
-      // Hide the modal manually
+
+// Dölj modalen manuellt
       this.$nextTick(() => {
         this.$bvModal.hide('modal-product');
         this.$toasted.show('The product is saved successfully.', {theme: 'outline',position: "top-center", icon : 'info', type: 'info', duration: 3000});
       })
     },
-    showConfirmBox(id) {
+    showConfirmBox(id) { // öppna bekräfta rutan
+
       this.$bvModal.msgBoxConfirm('Please confirm that you want to delete the Product with ID: '+id, {
         title: 'Please Confirm',
         size: 'sm',
@@ -429,30 +436,30 @@ export default {
         // An error occurred
       })
     },
-    addRow() {
+    addRow() { // Lägger till rad
       this.$store.dispatch('api_product/emptyProduct');
       this.$bvModal.show('modal-product');
     },
-    editRow(id){
+    editRow(id){ //redigerar rad
       this.$store.dispatch('api_product/getProduct', {id: id});
       this.$bvModal.show('modal-product');
     },
-    deleteRow(id){
+    deleteRow(id){ // tar bort
       this.showConfirmBox(id);
     },
-    getProducts(){
+    getProducts(){  //Hämtar produkter
         this.$store.dispatch('api_product/getProducts')
     },
-    getLocations(){
+    getLocations(){  //hämtar location
         this.$store.dispatch('category/getLocations')
     },
-    getAreas(){
+    getAreas(){ //hämtar area
         this.$store.dispatch('category/getAreas')
     },
-    getTypes(){
+    getTypes(){ //hämtar types
         this.$store.dispatch('category/getTypes')
     },
-    addMin:function(){
+    addMin:function(){  //hämtas min price
 			if(parseInt(this.filters.price.value.min) < this.filters.price.value.max)
 			{
 				this.filters.price.value.min = parseInt(this.filters.price.value.min) + 10000;
@@ -464,7 +471,7 @@ export default {
 				this.filters.price.value.min = parseInt(this.filters.price.value.min) - 10000;
 			}
 		},
-		addMax:function(){
+		addMax:function(){ //hämtar max price
 			if(parseInt(this.filters.price.value.max) < 900000000)
 			{
 				this.filters.price.value.max = parseInt(this.filters.price.value.max) + 10000;

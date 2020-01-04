@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- page-wrapper Start-->
-    <div class="page-wrapper" id="canvas-bookmark">
+    <div class="page-wrapper" id="canvas-bookmark" >
       <!-- Page Header Start-->
       <div class="page-main-header" :class="{ open:toggle_sidebar_var }">
         <div class="main-header-right row">
@@ -16,7 +16,7 @@
           <div class="nav-right col">
             <ul class="nav-menus" :class="{ open: mobile_toggle }">
               <li>
-                <form class="form-inline search-form">
+                <form class="form-inline search-form" >
                   <div class="form-group">
                     <input :class="{ open: mobile_search }" class="form-control-plaintext"  v-on:keyup="searchTerm" v-model="terms" type="text" placeholder="Search..">
                     <div :class="searchResult ? 'Typeahead-menu is-open' : 'Typeahead-menu'" v-if="menuItems.length">
@@ -47,55 +47,16 @@
           <li><a class="text-dark" v-on:click="toggle_fullscreen()"><feather type="maximize"></feather></a></li>
           <li class="onhover-dropdown"><a class="txt-dark" href="#">
             <h6>EN</h6></a>
-            <ul class="language-dropdown onhover-show-div p-20">
-              <li><a href="#" data-lng="en"><i class="flag-icon flag-icon-is"></i> English</a></li>
-              <li><a href="#" data-lng="es"><i class="flag-icon flag-icon-um"></i> Spanish</a></li>
-              <li><a href="#" data-lng="pt"><i class="flag-icon flag-icon-uy"></i> Portuguese</a></li>
-              <li><a href="#" data-lng="fr"><i class="flag-icon flag-icon-nz"></i> French</a></li>
-            </ul>
+
           </li>
           <li class="onhover-dropdown"><feather type="bell"></feather><span class="dot"></span>
-            <ul class="notification-dropdown onhover-show-div">
-              <li>Notification <span class="badge badge-pill badge-primary pull-right">3</span></li>
-              <li>
-                <div class="media">
-                  <div class="media-body">
-                    <h6 class="mt-0"><span><feather class="shopping-color" type="shopping-bag"></feather></span>Your order ready for Ship..!<small class="pull-right">9:00 AM</small></h6>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="media">
-                  <div class="media-body">
-                    <h6 class="mt-0 txt-success"><span><feather class="download-color font-success" type="download"></feather></span>Download Complete<small class="pull-right">2:30 PM</small></h6>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="media">
-                  <div class="media-body">
-                    <h6 class="mt-0 txt-danger"><span><feather class="alert-color font-danger" type="alert-circle"></feather></span>250 MB trash files<small class="pull-right">5:00 PM</small></h6>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
-                  </div>
-                </div>
-              </li>
-              <li class="bg-light txt-dark"><a href="#">All</a> notification</li>
-            </ul>
+
           </li>
           <li><a href="#" v-on:click="toggle_rightsidebar"><feather type="message-circle"></feather><span class="dot"></span></a></li>
           <li class="onhover-dropdown">
             <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle" src="../assets/images/dashboard/user.png" alt="header-user">
               <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
             </div>
-            <ul class="profile-dropdown onhover-show-div p-20">
-              <li><a href="#"><feather type="user"></feather> Edit Profile</a></li>
-              <li><a href="#"><feather type="mail"></feather> Inbox</a></li>
-              <li><a href="#"><feather type="lock"></feather> Lock Screen</a></li>
-              <li><a href="#"><feather type="settings"></feather> Settings</a></li>
-              <li @click="logout" ><a href="#"><feather type="log-out"></feather> Logout</a></li>
-            </ul>
           </li>
         </ul>
         <div class="d-lg-none mobile-toggle pull-right" v-on:click="mobile_toggle = !mobile_toggle"><feather type="more-horizontal"></feather></div>

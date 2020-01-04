@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const url = process.env.VUE_APP_BACKEND_URL+'api/';
+//definerar state
 const state = {
     isLoading:false,
     country:'',
@@ -35,23 +36,20 @@ const getters = {
 // mutations
 const mutations = {
     getLocations(state, data) {
-        state.locations = data;
-        //console.log(data);
+        state.locations = data; //sätter location 
     },
     getAreas(state, data) {
         state.areas = data;
-        //console.log(data);
     },
     getTypes(state, data) {
-        state.types = data;
-        //console.log(data);
+        state.types = data;  //sätter types
     },
     getLocations_fromAPI(state, data) {
         if (data.LocationData) {
-            state.country = data.LocationData.Country; 
-            state.provinceArea = data.LocationData.ProvinceArea.ProvinceAreaName; 
-            state.locations = data.LocationData.ProvinceArea.Locations.Location;
-            //console.log(state.locations);
+            state.country = data.LocationData.Country;   // sätter land från API 
+            state.provinceArea = data.LocationData.ProvinceArea.ProvinceAreaName;  //sätter provinceArea från API  
+            state.locations = data.LocationData.ProvinceArea.Locations.Location;  //sätter locationdata från API 
+            
         }
     },
     getTypes_fromAPI(state, data) {
@@ -60,14 +58,14 @@ const mutations = {
             data.PropertyTypes.PropertyType.forEach(item => {
                 items.push({name:item.Type, code:item.OptionValue});
             });
-            state.types = items;
+            state.types = items;  //sätter types från API 
         }
-        //console.log(state.types);
+        
     },
     getRefKeys(state, data) {
-        state.ref_keys = data;
+        state.ref_keys = data;  // Sätter ref_keys 
     },
-    emptyProduct(state) {
+    emptyProduct(state) {  // Sätter tom state
         state.product = {
             title:'',
             description:'',
@@ -84,14 +82,14 @@ const mutations = {
             images:[],
         };
     },
-    saveProduct(state, data) {
-        state.product = data;
+    saveProduct(state, data) { 
+        state.product = data;  // Binder till produkt
         state.isLoading = false;
     },
     getPropery(state, data) {
         if (data.Property) {
             let item = data.Property;
-            let temp = {
+            let temp = {   // kör parametern
                 ref_key: item.Reference,
                 title: item.PropertyType.NameType + ' in '+ item.Location + ', ' + item.Area + ', ' + item.Province,
                 description: item.Description,
@@ -137,16 +135,14 @@ const mutations = {
                 });
             }
             temp['images'] = images;
-            state.product = temp;
+            state.product = temp;  // Sätter produkter 
         }
         state.isLoading = false;
-        // console.log('get Property');
-        // console.log(state.product);
     },
     getList(state, data) {
         state.totalCount = data.QueryInfo.PropertyCount;
         state.totalPages = Math.ceil(state.totalCount/5);
-        if (data.Property) {
+        if (data.Property) {   
             let items = [];
             data.Property.forEach(item => {
                 let temp = {
@@ -176,7 +172,7 @@ const mutations = {
                 temp['images'] = images;
                 items.push(temp);
             });
-            state.property_list = items;
+            state.property_list = items; //Sätter property_list 
         }
         state.isLoading = false;
     }
@@ -186,19 +182,20 @@ const mutations = {
 const actions = {
     getLocations({commit}) {
         axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-        axios.get(url+'categlocation').then((response) => {
+        axios.get(url+'categlocation').then((response) => {  //send the request to the backend to get the location
             commit('getLocations', response.data);
         });
     },
     getAreas({commit}) {
         axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-        axios.get(url+'categarea').then((response) => {
+        axios.get(url+'categarea').then((response) => {// 
+            // skicka begäran till backend för att få platsens
             commit('getAreas', response.data);
         });
     },
     getTypes({commit}) {
         axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-        axios.get(url+'categtype').then((response) => {
+        axios.get(url+'categtype').then((response) => {//skicka begäran till backend för att få typerna
             commit('getTypes', response.data);
         });
     },
@@ -211,6 +208,7 @@ const actions = {
         };
         axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
         axios.post(url+'productapi/getdata', params).then((response) => {
+            // få platserna från api
             commit('getLocations_fromAPI', response.data);
         });
     },
@@ -222,13 +220,15 @@ const actions = {
             P_Lang: '1'
         };
         axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-        axios.post(url+'productapi/getdata', params).then((response) => {
+        axios.post(url+'productapi/getdata', params).then((response) => { 
+            // få typerna från 3: e api
             commit('getTypes_fromAPI', response.data);
         });
     },
     getRefKeys({commit}) {
         axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-        axios.get(url+'productapi/refkey').then((response) => {
+        axios.get(url+'productapi/refkey').then((response) => {  
+            // ta  refkeys från tredjeparts api
             commit('getRefKeys', response.data);
         });
     },
@@ -244,9 +244,10 @@ const actions = {
             P_showdecree218: 'YES'
         };
         axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-        axios.post(url+'productapi/getdata', params).then((response) => {
+        axios.post(url+'productapi/getdata', params).then((response) => {  
+            // få produktinformationen från 3: e api
             commit('getPropery', response.data);
-            dispatch('saveProduct', state.product);
+            dispatch('saveProduct', state.product);//sparar produkter
         }).catch(error => {
             state.isLoading = false;
             console.log(error)
@@ -265,7 +266,7 @@ const actions = {
                 }
             });
         }
-        if (!isFound) product.type = "5e020c2e67a67f16d4324f95";
+        if (!isFound) product.type = "5e020c2e67a67f16d4324f95";  //alla
         isFound = false;
         if (state.locations) {
             state.locations.forEach(t=>{
@@ -275,7 +276,7 @@ const actions = {
                 }
             });
         }
-        if (!isFound) product.location = "5dee5b2f2fb4423f1c16a415";
+        if (!isFound) product.location = "5dee5b2f2fb4423f1c16a415";  //all
         isFound = false;
         if (state.areas) {
             state.areas.forEach(t=>{
@@ -285,10 +286,10 @@ const actions = {
                 }
             });
         }
-        if (!isFound) product.area = "5dee5bc52fb4423f1c16a418";
+        if (!isFound) product.area = "5dee5bc52fb4423f1c16a418";  //all
         state.isLoading = true;
         axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-        axios.post(url+'productapi', product).then((response) => {
+        axios.post(url+'productapi', product).then((response) => { //sparar produkter
             commit('saveProduct', response);
             dispatch('getRefKeys');
         }).catch(error => {
@@ -325,6 +326,7 @@ const actions = {
         }
         axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
         axios.post(url+'productapi/getdata', params).then((response) => {
+            // hämta sökdata från db
             commit('getList', response.data);
         }).catch(error => {
             state.isLoading = false;

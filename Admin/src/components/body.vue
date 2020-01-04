@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="page-wrapper" :class="layout.settings.sidebar.type">
+    <div class="page-wrapper" >
       <Header @clicked="sidebar_toggle" @rightclicked="rightsidebar_toggle" @mobileclicked="mobiletoggle_toggle" />
-      <div class="page-body-wrapper" :class="layout.settings.sidebar.body_type">
-        <div class="page-sidebar" :class="[{ open : sidebar_toggle_var }, layout.settings.sidebar_backround]" :sidebar-layout="layout.settings.sidebar_setting">
+      <div class="page-body-wrapper">
+        <div class="page-sidebar" :class="[{ open : sidebar_toggle_var }]" >
           <Sidebar />
         </div>
       
@@ -14,7 +14,6 @@
         </div>
         <Footer/>
       </div>
-      <Customizer/>
     </div>
   </div>
 </template>
@@ -23,8 +22,6 @@
 import { mapState } from "vuex";
 import Header from './header'
 import Sidebar from './sidebar'
-import Footer from './footer'
-import Customizer from './customizer'
 
 export default {
   name: 'mainpage',
@@ -36,24 +33,19 @@ export default {
       resized:false
     }
   },
-  // props:['sidebar_toggle_var'],
-  components:{
+  components:{  // Kombinerar header och vänstra side-bar 
     Header,
     Sidebar,
-    Footer,
-    Customizer
   },
   computed: {
     ...mapState({
       menuItems: state => state.menu.data,
-      layout: state => state.layout.layout
     })
   },
   created(){
     window.addEventListener('resize', this.handleResize)
     this.handleResize();
     this.resized = this.sidebar_toggle_var;
-    this.$store.dispatch('layout/set')
   },
   watch:{
     '$route' (){

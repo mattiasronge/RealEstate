@@ -1,5 +1,5 @@
 import Menu from '../../data/menu'
-
+//define the state
 const state = {
     data: Menu.data,
     searchData: []
@@ -12,7 +12,12 @@ const getters = {
 
 // mutations
 const mutations = {
-    searchTerm: (state, term) => {
+    /**
+    * 
+    * Mutations hanterar states.
+    * Dem kallas via actions. All data kommer att bindas via parametrar.
+    */
+    searchTerm: (state, term) => {//Den här mutationen ändrar stat-searchData och kallas från admin-sidans filtrerings menu
         let items = [];
         term = term.toLowerCase();
         state.data.filter(menuItems => {
@@ -69,7 +74,11 @@ const mutations = {
     }
 };
 
+
 // actions
+/**
+ *Actions hanterar begäran från backend
+ */
 const actions = {
     searchTerm: (context, term) => {
         context.commit('searchTerm',term)
